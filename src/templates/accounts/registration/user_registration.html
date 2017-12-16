@@ -1,0 +1,61 @@
+{% extends 'base.html' %}{% load i18n static %} {% block extrastyle %}{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/login.css' %}" />{% endblock %} {% block page_title %}Login | Sign-up{% endblock %} {% block content %}
+<div class="login-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#signup" role="tab">Sign Up</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="signup" role="tabpanel">
+                        <h1>Sign Up for Free</h1>
+                        <!--Sign up Form -->
+                        <form method="post" autocomplete="off">
+                            {% csrf_token %}
+                            <div class="form-group input-group">
+                                <span class="input-group-addon" id="sizing-addon1 id_first_name">{{ form.first_name.label_tag }}</span>
+                                <input type="text" class="form-control" name="first_name" maxlength="150" id="id_first_name" aria-describedby="sizing-addon1">
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon" id="sizing-addon2 id_last_name">{{ form.last_name.label_tag }}</span>
+                                <input type="text" class="form-control" name="last_name" maxlength="150" id="id_last_name" aria-describedby="sizing-addon2">
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon" id="sizing-addon3 id_email">{{ form.email.label_tag }}</span>
+                                <input type="email" class="form-control" name="email" maxlength="254" id="id_email" aria-describedby="sizing-addon3">
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon" id="sizing-addon4 us id_username">{{ form.username.label_tag }}</span>
+                                <input type="password" class="form-control" name="username" maxlength="150" id="id_username" aria-describedby="sizing-addon4" required>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon" id="sizing-addon5 id_password1">{{ form.password1.label_tag }}</span>
+                                <input type="password" class="form-control" name="password1" maxlength="128" id="id_password1" aria-describedby="sizing-addon5" required>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon" id="sizing-addon6 id_password2">{{ form.password2.label_tag }}</span>
+                                <input type="password" class="form-control" name="password2" maxlength="128" id="id_password2" aria-describedby="sizing-addon6" required>
+                            </div>
+                            <div class="form-group input-group justify-content-end"><button type="submit" name="signup-btn" id="signup-btn" class="btn btn-outline-secondary">Register</button></div>
+                        </form>
+                        {% if form.errors %}
+                        <div class="alert-danger col-lg-12 p-3 mt-2">
+                            <p>Enter valid form fields.</p>
+                        </div>
+                        {% endif %}
+                        <div class="col-lg-12 text-center">
+                            <p class="login"><a href="{% url 'accounts:login' %}"><small>Log In</small></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
