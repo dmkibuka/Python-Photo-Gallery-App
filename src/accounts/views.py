@@ -9,7 +9,7 @@ from . forms import UserRegistration
 
 class UserRegistrationView(FormView):
     form_class = UserRegistration
-    template_name = 'accounts/registration/login.html'
+    template_name = 'accounts/registration/user_registration.html'
 
     # if a GET (or any other method) we'll create a blank form
     def get(self, request):
