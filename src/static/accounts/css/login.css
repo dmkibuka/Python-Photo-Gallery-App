@@ -8,10 +8,12 @@ body {
 h1 {
     padding: 1rem;
     text-align: center;
+    color: #a9a9a9;
 }
 
 h4 {
     text-align: center;
+    color: #b9e3d7
 }
 
 
@@ -24,7 +26,7 @@ button[type="submit"] {
 .nav-tabs .nav-link.active,
 .tab-content {
     background-color: #343a40;
-    color: #f8f8f8;
+    color: #b9e3d7;
 }
 
 .nav-tabs .nav-link {
@@ -48,3 +50,11 @@ button[type="submit"] {
 .forgot p {
     text-align: center;
 }
+
+a {
+    color: #deeaef;
+}
+a:hover {
+    color: #809be9;
+}
+

@@ -15,7 +15,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="login" role="tabpanel">
                         <h1>My Photo Gallery</h1>
-                        <h4>Welcome! Please log in</h4>
+                        <h4>Welcome!</h4>
                         <!--Login Form -->
                         <form method="post" autocomplete="off">
                             {% csrf_token %}
@@ -27,7 +27,7 @@
                                 <span class="input-group-addon" id="sizing-addon2 id_password">{{ form.password.label_tag }}</span>
                                 <input type="password" class="form-control" name="password" maxlength="128" id="id_password" aria-describedby="sizing-addon2" required>
                             </div>
-                            <div class="form-group input-group justify-content-end"><button type="submit" name="login-btn" id="login-btn" class="btn btn-outline-default">Log In</button></div>
+                            <div class="form-group input-group justify-content-end"><button type="submit" name="login-btn" id="login-btn" class="btn btn-outline-secondary">Log In</button></div>
                         </form>
                         {% if form.errors %}
                         <div class="alert-danger col-lg-12 p-3 mt-2">
