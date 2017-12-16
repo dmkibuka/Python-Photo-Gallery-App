@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'PhotoApp.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'PhotoApp.urls'
@@ -124,4 +126,12 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'tutorial/media')
+
+LOGIN_REDIRECT_URL = '/#/'
+
+LOGIN_URL = '/accounts/login/'
+
+LOGIN_EXEMPT_URLS = (
+ 'accounts/logout/','accounts/register/','accounts/password-reset/','accounts/password-reset/done/','accounts/reset/<uidb64>/<token>/','accounts/reset/done/',
+)
